@@ -1,0 +1,27 @@
+{
+  "name": "ding-load-dir",
+  "version": "1.0.0",
+  "description": "loading files‘ module from dir into an object",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yidinghan/ding-load-dir.git"
+  },
+  "keywords": [
+    "load",
+    "file",
+    "module"
+  ],
+  "author": "ding",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yidinghan/ding-load-dir/issues"
+  },
+  "homepage": "https://github.com/yidinghan/ding-load-dir#readme",
+  "dependencies": {
+    "lodash": "^4.16.2"
+  }
+}
