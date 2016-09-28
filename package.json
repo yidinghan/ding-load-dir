@@ -4,7 +4,8 @@
   "description": "loading files‘ module from dir into an object",
   "main": "index.js",
   "scripts": {
-    "test": "ava -v"
+    "test": "ava -v",
+    "lint": "eslint ./**/*.js --fix"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,10 @@
   "homepage": "https://github.com/yidinghan/ding-load-dir#readme",
   "dependencies": {
     "lodash": "^4.16.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.6.1",
+    "eslint-config-airbnb-base": "^8.0.0",
+    "eslint-plugin-import": "^1.16.0"
   }
 }

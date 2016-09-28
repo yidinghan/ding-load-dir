@@ -2,11 +2,10 @@ const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
 
+const loader = (filePath, name, args) => {
+  const func = () => (name ? module.require(filePath + name) : module.require(filePath));
 
-const load = (filePath, name, args) => {
-    const func = () => (name ? require(filePath + name) : require(filePath));
-
-    return args && func.apply(func, args) || func();
+  return (args && func.apply(func, args)) || func();
 };
 
 /**
@@ -17,26 +16,26 @@ const load = (filePath, name, args) => {
  * @param {Mixed} args - args would pass to those files module
  **/
 const loadDir = (options) => {
-    const opts = _.defaults(options || {}, {
-        patcher: {},
-        dirPath: './',
-        dirname: __dirname,
-        args: [],
-        includeDir: false
-    });
-    const dirOrig = opts.dirPath;
-    const dirPath = dirOrig.startsWith(opts.dirname) ? dirOrig : path.join(opts.dirname, dirOrig);
+  const opts = _.defaults(options || {}, {
+    patcher: {},
+    dirPath: './',
+    dirname: __dirname,
+    args: [],
+    includeDir: false,
+  });
+  const dirOrig = opts.dirPath;
+  const dirPath = dirOrig.startsWith(opts.dirname) ? dirOrig : path.join(opts.dirname, dirOrig);
 
-    fs.readdirSync(dirPath).forEach((filename) => {
-        if (!/\.js$/.test(filename) && !opts.includeDir) { return; }
+  fs.readdirSync(dirPath).forEach((filename) => {
+    if (!/\.js$/.test(filename) && !opts.includeDir) { return; }
 
-        const name = path.basename(filename, '.js');
-        const _load = load.bind(null, `${dirPath}/`, name, opts.args);
+    const name = path.basename(filename, '.js');
+    const load = loader.bind(null, `${dirPath}/`, name, opts.args);
 
-        Object.defineProperty(opts.patcher, name, { get: _load });
-    });
+    Object.defineProperty(opts.patcher, name, { get: load });
+  });
 
-    return opts.patcher;
+  return opts.patcher;
 };
 
 module.exports = loadDir;
