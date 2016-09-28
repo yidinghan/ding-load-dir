@@ -1,0 +1,4 @@
+module.exports = {
+  extends: 'airbnb-base',
+  installedESLint: true,
+};
