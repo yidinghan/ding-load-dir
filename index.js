@@ -10,10 +10,11 @@ const loader = (filePath, name, args) => {
 
 /**
  * an simply way the load files in dir
- * @param {Object} patcher - the obj need to load files module to
- * @param {String} dirPath - it will join with default `__dirname` if dirName is relative path
- * @param {String} dirname - root of dirPath
- * @param {Mixed} args - args would pass to those files module
+ * @param {Object} options - config
+ * @param {Object} options.patcher={} - the obj need to load files module to
+ * @param {String} options.dirPath='./' - it will join with dirName is relative path
+ * @param {String} options.dirname - root of dirPath
+ * @param {Mixed} options.args=[] - args would pass to those files module
  **/
 const loadDir = (options) => {
   const opts = _.defaults(options || {}, {
