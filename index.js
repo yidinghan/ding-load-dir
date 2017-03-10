@@ -13,7 +13,7 @@ const loader = (filePath, name, args) => {
  * @param {Object} options - config
  * @param {Object} [options.patcher={}] - the obj need to load files module to
  * @param {String} [options.path='./'] - it will join with dirName is relative path
- * @param {String} [options.dirname=process.env.PWD || __dirname] - root of dirPath
+ * @param {String} [options.dirname=process.env.PWD or __dirname] - root of dirPath
  * @param {Mixed} [options.args=[]] - args would pass to those files module
  **/
 const loadDir = (options) => {

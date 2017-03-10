@@ -14,6 +14,6 @@ an simply way the load files in dir
 | options | <code>Object</code> |  | config |
 | [options.patcher] | <code>Object</code> | <code>{}</code> | the obj need to load files module to |
 | [options.path] | <code>String</code> | <code>&#x27;./&#x27;</code> | it will join with dirName is relative path |
-| [options.dirname] | <code>String</code> | <code>process.env.PWD || __dirname</code> | root of dirPath |
+| [options.dirname] | <code>String</code> | <code>process.env.PWD or __dirname</code> | root of dirPath |
 | [options.args] | <code>Mixed</code> | <code>[]</code> | args would pass to those files module |
 
