@@ -11,20 +11,25 @@ const loader = (filePath, name, args) => {
 /**
  * an simply way the load files in dir
  * @param {Object} options - config
- * @param {Object} options.patcher={} - the obj need to load files module to
- * @param {String} options.dirPath='./' - it will join with dirName is relative path
- * @param {String} options.dirname - root of dirPath
- * @param {Mixed} options.args=[]] - args would pass to those files module
+ * @param {Object} [options.patcher={}] - the obj need to load files module to
+ * @param {String} [options.path='./'] - it will join with dirName is relative path
+ * @param {String} [options.dirname=process.env.PWD || __dirname] - root of dirPath
+ * @param {Mixed} [options.args=[]] - args would pass to those files module
  **/
 const loadDir = (options) => {
   const opts = _.defaults(options || {}, {
     patcher: {},
-    dirPath: './',
-    dirname: __dirname,
+    path: './',
+    dirPath: null,
+    dirname: process.env.PWD || __dirname,
     args: [],
     includeDir: false,
   });
-  const dirOrig = opts.dirPath;
+
+  // Compatible with older versions
+  const dirOrig = opts.dirPath || opts.path;
+  // once dirOrig have the same prefix of opts.dirname
+  // should not join cuz dirOrig is absolute path
   const dirPath = dirOrig.startsWith(opts.dirname) ? dirOrig : path.join(opts.dirname, dirOrig);
 
   fs.readdirSync(dirPath).forEach((filename) => {
