@@ -1,5 +1,7 @@
 # ding-load-dir
 
+[![npm version](https://badge.fury.io/js/ding-load-dir.svg)](https://badge.fury.io/js/ding-load-dir)
+
 loading files' module from dir into an object
 
 <a name="loadDir"></a>
