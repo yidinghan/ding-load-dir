@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/ding-load-dir.svg?style=flat-square)]()
 [![npm](https://img.shields.io/npm/dm/ding-load-dir.svg?style=flat-square)]()
+[![David](https://img.shields.io/david/yidinghan/ding-load-dir.svg?style=flat-square)]()
+[![David](https://img.shields.io/david/dev/yidinghan/ding-load-dir.svg?style=flat-square)]()
 
 loading files' module from dir into an object
 
