@@ -1,6 +1,7 @@
 # ding-load-dir
 
-[![npm version](https://badge.fury.io/js/ding-load-dir.svg)](https://badge.fury.io/js/ding-load-dir)
+[![npm](https://img.shields.io/npm/v/ding-load-dir.svg?style=flat-square)]()
+[![npm](https://img.shields.io/npm/dm/ding-load-dir.svg?style=flat-square)]()
 
 loading files' module from dir into an object
 
